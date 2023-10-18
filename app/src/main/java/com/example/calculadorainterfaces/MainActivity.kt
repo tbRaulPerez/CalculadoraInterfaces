@@ -112,7 +112,7 @@ fun Principal() {
                         listaNums.add(resultado)
                     }
                     listaOperadores.add(token[0])
-                }else{ }
+                }
             }
         }
 
@@ -143,7 +143,7 @@ fun Principal() {
             .background(Color.White)){
 
             Column(Modifier.fillMaxWidth()) {
-                operaciones(cadena = cadena)
+                Operaciones(cadena = cadena)
                 Resultado(numero = resultadoTexto)
             }
         }
@@ -318,7 +318,7 @@ fun Principal() {
                             .weight(1f)){
                         Boton(textoBoton = "=", {
                             if(cadena.isNotEmpty()){
-                                if(!"+-*/".contains(cadena.last())){
+                                if(!" ".contains(cadena.last())){
                                     calcular(cadena)
                                 }
                             }
@@ -331,7 +331,7 @@ fun Principal() {
 }
 
 @Composable
-fun operaciones(cadena: String){
+fun Operaciones(cadena: String){
     Text(text = cadena, Modifier.fillMaxWidth(),
         style = TextStyle(
             fontSize = 35.sp,
